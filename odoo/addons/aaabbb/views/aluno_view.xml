@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    
+    <record id="list_integrantes" model="ir.ui.view">
+    <field name="name">aluno.odoo.tree</field>
+    <field name="model">aluno.odoo</field>
+    <field name="arch" type="xml">
+        <tree string="Alunos">
+        <field name="foto" nolabel="1" widget="image" class="oe_right oe_avatar" options ="{'size': [50, 50]}"/>
+        <field name="id" string="ID" />
+        <field name="nome" string="Nomes" />
+        <field name="matricula" string="Matrícula" />
+        <field name="ativo" string="Aluno Ativo" />
+        <field name="quem_criou" string="Criado Por" />
+        </tree>
+    </field>
+    </record>
+    <record id="aluno_kanban" model="ir.ui.view">
+    <field name="name">aluno.odoo.kanban</field>
+    <field name="model">aluno.odoo</field>
+    <field name="arch" type="xml">
+        <kanban>
+            <field name="id"/>
+            <field name="nome"/>
+            <field name="matricula"/>
+            <field name="ativo"/>
+            <templates>
+                <center><t t-name="kanban-box">
+                    <div t-attf-class="oe_kanban_global_click">
+                     <div class="o_kanban_image">
+                                    
+                                         <field name="foto" widget="image" options ="{'size': [50, 50]}" style="margin-right:10px;"/>
+                                    
+                                    
+                                </div>
+                         <div class="oe_kanban_details">
+                          <field name='nome' style="font-size:25px;"/>
+                        </div>
+                    </div>
+                </t></center>
+            </templates>
+        </kanban>
+    </field>
+    </record>
+    <record id="action_aluno" model="ir.actions.act_window">
+        <field name="name">Alunos</field>
+        <field name="res_model">aluno.odoo</field>
+        <field name="view_mode">tree,kanban,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+            Não sei te ajudar
+            </p><p>
+            Como vou ajudar se nem sei como funciona isso?!
+            </p>
+        </field>
+    </record>
+    <record id="action_professor" model="ir.actions.act_window">
+        <field name="name">Professor</field>
+        <field name="res_model">professor.odoo</field>
+        <field name="view_mode">tree,kanban,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+            Não sei te ajudar
+            </p><p>
+            Como vou ajudar se nem sei como funciona isso?!
+            </p>
+        </field>
+    </record>
+    <record id="action_admin" model="ir.actions.act_window">
+        <field name="name">Administradores</field>
+        <field name="res_model">admin.odoo</field>
+        <field name="view_mode">tree,kanban,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+            Não sei te ajudar
+            </p><p>
+            Como vou ajudar se nem sei como funciona isso?!
+            </p>
+        </field>
+    </record>
+    <menuitem id="escola_list" sequence="100" name= 'Escola'/>
+    <menuitem id="integrantes_list" parent="escola_list" sequence="100" name= 'Integrantes'/>
+    <menuitem action="action_aluno" id="aluno_action" parent="integrantes_list" sequence="100" name= 'Aluno'/>
+    <menuitem action="action_professor" id="prof_action" parent="integrantes_list" sequence="100" name= 'Professor'/>
+    <menuitem action="action_admin" id="admin_action" parent="integrantes_list" sequence="100" name= 'Administradores'/>
+    <record id="action_por" model="ir.actions.act_window">
+        <field name="name">Português</field>
+        <field name="res_model">aluno.odoo</field>
+        <field name="view_mode">kanban,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+            Bem vindo
+            </p>
+        </field>
+    </record>
+    <menuitem id='materias_list' parent='escola_list' sequence='100' name='Materias'/>
+    <menuitem action="action_por" id='portugues_list' parent='materias_list' sequence='1000' name='Português'/>
+    <menuitem action="action_aluno" id='matematica_list' parent='materias_list' sequence='1000' name='Matemática'/>
+    <menuitem action="action_aluno" id='ingles_list' parent='materias_list' sequence='1000' name='Inglês'/>
+    <menuitem action="action_aluno" id='geografia_list' parent='materias_list' sequence='1000' name='Geografia'/>
+    <menuitem action="action_aluno" id='historia_list' parent='materias_list' sequence='1000' name='Hístoria'/>
+    <menuitem action="action_aluno" id='fisica_list' parent='materias_list' sequence='1000' name='Física'/>
+    <menuitem action="action_aluno" id='quimica_list' parent='materias_list' sequence='1000' name='Química'/>
+</odoo>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem id="iart" sequence="100" name= 'IART'/>
+    <menuitem action="action_alunos_iart" id="aluno_action_iart" parent="iart" sequence="100" name= 'Bolsistas'/>
+    <menuitem id="bolsa_action_iart" parent="iart" sequence="100" name= 'Bolsas'/>
+    <menuitem action="action_bolsas_iart" id="bolsa_" parent="bolsa_action_iart" sequence="100" name= 'Bolsas'/>
+</odoo>

@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_aluno_odoo,access.aluno.odoo,model_aluno_odoo,,1,1,1,1
+access_professor_odoo,access.professor.odoo,model_professor_odoo,,1,0,1,0

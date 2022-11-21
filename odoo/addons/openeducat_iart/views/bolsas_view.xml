@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- modo de visualização em lista comum -->
+
+    <record id="list_integrantes" model="ir.ui.view">
+        <field name="name">op.student.iart.bolsa.tree</field>
+        <field name="model">op.student.iart.bolsa</field>
+        <field name="arch" type="xml">
+            <tree string="Bolsas">
+            <field name="nome" string="Nomes" />
+            <!-- o atributo widget="many2many_tags" é quem vai colocar tags com indicadores a quem ele é relacionado -->
+            <field name="bolsistas" widget="many2many_tags" string="Matrícula" />
+            </tree>
+        </field>
+        </record>
+    
+    <!-- modo de visualização kanban -->
+    <record id="aluno_kanban" model="ir.ui.view">
+        <field name="name">op.student.iart.bolsa.kanban</field>
+        <field name="model">op.student.iart.bolsa</field>
+        <field name="arch" type="xml">
+            <kanban>
+                <templates>
+                    <center><t t-name="kanban-box">
+                        <div t-attf-class="oe_kanban_global_click">
+                            <div class="oe_kanban_details">
+                            <!-- <p> significa paragrafo -->
+                            <p><field name='nome' style="font-size:25px;"/></p><p>
+                            <!-- o atributo widget="many2many_tags" é quem vai colocar tags com indicadores a quem ele é relacionado -->
+                            <field name="bolsistas" widget="many2many_tags" string="Matrícula" /></p>
+                            </div>
+                        </div>
+                    </t></center>
+                </templates>
+            </kanban>
+    </field>
+    </record>
+   
+    <!-- tela em si -->
+    
+    <record id="action_bolsas_iart" model="ir.actions.act_window">
+        <field name="name">Bolsas</field>
+        <field name="res_model">op.student.iart.bolsa</field>
+        <field name="view_mode">kanban,tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+            Nenhuma bolsa aqui
+            </p><p>
+            Clique em criar
+            </p>
+        </field>
+    </record>
+</odoo>
